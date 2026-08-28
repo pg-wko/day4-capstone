@@ -2,7 +2,11 @@ import argparse
 import sys
 from pathlib import Path
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv():
+        return False
 
 load_dotenv()
 
@@ -46,6 +50,27 @@ def cmd_crag(args):
     print(run_crag(args.query))
 
 
+def cmd_triage(args):
+    from src.triage import triage_batch, write_report
+    from src.triage_tools import TriageTools
+
+    tools = TriageTools(args.data_dir)
+    failures = tools.load_failures()
+    if not failures:
+        print(f"No failures found in {Path(args.data_dir) / 'failures.json'}")
+        return
+    classifier = None
+    if args.online:
+        from src.triage import _llm_classifier
+        classifier = _llm_classifier
+    records = triage_batch(failures, tools, classifier=classifier)
+    markdown_path, json_path = write_report(records, args.output_dir)
+    print(f"Triage complete: {len(records)} failures")
+    print(f"Markdown report: {markdown_path}")
+    print(f"JSON report: {json_path}")
+    print(f"Tool calls: {len(tools.calls)}; external writes: {sum(call.get('write', False) for call in tools.calls)}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Baseline PDF RAG — ChromaDB + Ollama")
     sub = parser.add_subparsers(dest="command")
@@ -62,12 +87,17 @@ def main():
     p_crag = sub.add_parser("crag", help="Query using Corrective RAG (LangGraph)")
     p_crag.add_argument("query", help="Question to ask")
 
+    p_triage = sub.add_parser("triage", help="Triage a fixture-backed CI failure batch")
+    p_triage.add_argument("--data-dir", default="data", help="Folder containing failure and history fixtures")
+    p_triage.add_argument("--output-dir", default="reports", help="Folder for Markdown and JSON reports")
+    p_triage.add_argument("--online", action="store_true", help="Use the configured OpenAI-compatible endpoint")
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
         sys.exit(1)
 
-    {"ingest": cmd_ingest, "query": cmd_query, "crag": cmd_crag}[args.command](args)
+    {"ingest": cmd_ingest, "query": cmd_query, "crag": cmd_crag, "triage": cmd_triage}[args.command](args)
 
 
 if __name__ == "__main__":

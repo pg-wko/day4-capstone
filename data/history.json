@@ -1,0 +1,12 @@
+[
+  {
+    "source": "FLAKE-014",
+    "component": "payments",
+    "text": "checkout_timeout is a known flaky test when the payment sandbox is redeployed. Rerun after deployment completes."
+  },
+  {
+    "source": "INC-021",
+    "component": "identity",
+    "text": "Identity service unavailable failures were caused by the staging service being offline."
+  }
+]

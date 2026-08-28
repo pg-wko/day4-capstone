@@ -1,0 +1,44 @@
+[
+  {
+    "run_id": "run-demo-001",
+    "test_id": "checkout-001",
+    "test_name": "checkout_applies_payment",
+    "suite": "checkout",
+    "component": "payments",
+    "owner": "Payments Team",
+    "error_type": "AssertionError",
+    "error_message": "Expected order status PAID, got FAILED",
+    "stack_trace": "AssertionError: Expected order status PAID, got FAILED",
+    "service_log": "Payment authorization returned HTTP 500",
+    "expected": "Order status is PAID",
+    "actual": "Order status is FAILED",
+    "environment": "staging",
+    "failure_url": "https://ci.example.invalid/run-demo-001/checkout-001",
+    "git_diff_summary": "CheckoutService.java changed payment response handling"
+  },
+  {
+    "run_id": "run-demo-001",
+    "test_id": "login-002",
+    "test_name": "login_with_valid_user",
+    "suite": "authentication",
+    "component": "identity",
+    "owner": "Identity Team",
+    "error_type": "ConnectionError",
+    "error_message": "identity service unavailable",
+    "service_log": "Connection refused to identity service",
+    "environment": "staging"
+  },
+  {
+    "run_id": "run-demo-001",
+    "test_id": "checkout-003",
+    "test_name": "checkout_timeout",
+    "suite": "checkout",
+    "component": "payments",
+    "owner": "Payments Team",
+    "error_type": "TimeoutError",
+    "error_message": "Payment sandbox timed out after 30 seconds",
+    "stack_trace": "TimeoutError: payment sandbox timeout",
+    "service_log": "sandbox redeployment started",
+    "environment": "staging"
+  }
+]
