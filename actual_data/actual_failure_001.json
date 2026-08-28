@@ -1,0 +1,29 @@
+{
+  "sample_id": "actual_failure_001",
+  "test_name": "validation_case_actual_01",
+  "suite": "processor_validation",
+  "failure": {
+    "error_type": "unexpected_exception",
+    "error_message": "An unexpected exception was observed in one execution thread."
+  },
+  "signature": "unexpected_exception",
+  "observed_evidence": {
+    "collection": {
+      "status": "failed",
+      "reason": "generation request timed out before the reproduction workspace was created"
+    },
+    "regeneration": {
+      "status": "failed",
+      "reason": "required regeneration step returned a failure"
+    },
+    "independent_simulation": {
+      "status": "not_run",
+      "reason": "required input artifact was not produced"
+    },
+    "stability": {
+      "status": "failed",
+      "reproduced": true,
+      "failure_rate_percent": 100
+    }
+  }
+}
