@@ -1,0 +1,9 @@
+{
+  "sample_id": "capstone-actual-001",
+  "failure_category": "exception",
+  "observation": "An unexpected exception was observed in one execution context during validation and reproduced in a follow-up stability run.",
+  "triage_label": "unexpected_exception_reproducible",
+  "recommended_validation": "Compare expected and observed exception delivery at the failure point using a controlled replay.",
+  "annotation_authority": "observed_failure_evidence",
+  "annotation_status": "reproduced"
+}

@@ -1,7 +1,9 @@
-# Sanitized Actual Failure Input
+# Sanitized Actual-Failure Sample
 
-This directory contains a small, generic input representation of one real validation failure for the TriageMate capstone demonstration.
+This folder contains one sanitized record derived from an actual reproducible validation failure.
 
-The record excludes source paths, hostnames, build and platform names, seeds, timestamps, internal product and tool names, ticket references, user names, and raw logs. It retains only sanitized failure metadata and observed flow outcomes needed to test the triage prompt.
+The record retains only the observed failure category, a generic triage label, and a generic validation action. It excludes the original directory, test identifier, platform, environment tags, timestamps, tool names, error values, and all architecture-specific details.
 
-No human label, confidence, rationale, recommendation, or other post-processing result is included. The triage system must classify the input from the observed evidence and apply the human checkpoint described in the playbook.
+`sample.json` is intentionally standalone and uses provenance fields that distinguish observed failure evidence from AI-triaged and human-labelled examples.
+
+`sanitized_raw_error_extract.json` preserves the direct diagnostic structure and safe categorical/count values from the error record. Source-specific identifiers, addresses, selectors, seed data, and platform data are represented only by redaction tokens.

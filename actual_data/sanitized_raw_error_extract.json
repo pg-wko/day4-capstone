@@ -1,0 +1,69 @@
+{
+  "record_type": "sanitized_raw_error_extract",
+  "source_kind": "actual_reproduced_failure",
+  "redaction_policy": "Source-specific identifiers, addresses, selectors, seed data, platform data, timestamps, and paths are replaced with redaction tokens.",
+  "generator_info": {
+    "generator_id": "<REDACTED_GENERATOR_ID>",
+    "seed": "<REDACTED_SEED>",
+    "seed_iteration": 1,
+    "active_thread_count": 6
+  },
+  "checkpoint_layout": {
+    "checkpoint_group_count": 2,
+    "checkpoint_values": "<REDACTED_CHECKPOINT_VALUES>"
+  },
+  "error_block": {
+    "error_category": "exception",
+    "error_code_class": "exception_error",
+    "maximum_loop_iteration": 0,
+    "detecting_thread_index": 1,
+    "expected_vector": "breakpoint_exception",
+    "actual_vector": "breakpoint_exception",
+    "expected_actual_vector_match": true,
+    "expected_extra_event_info_type": 0,
+    "actual_extra_event_info_type": 0,
+    "expected_instruction_address": "<REDACTED_ADDRESS>",
+    "expected_code_selector": "<REDACTED_SELECTOR>",
+    "expected_exception_error_code": 0,
+    "stack_frame": [
+      "<REDACTED_WORD>",
+      "<REDACTED_WORD>",
+      "<REDACTED_WORD>"
+    ],
+    "fault_address_register": "<REDACTED_ADDRESS>"
+  },
+  "event_debug_excerpt": [
+    {
+      "context_index": 0,
+      "event_names": ["system_management_interrupt", "system_management_interrupt"]
+    },
+    {
+      "context_index": 1,
+      "event_names": ["system_management_interrupt", "system_management_interrupt"]
+    },
+    {
+      "context_index": 2,
+      "event_names": ["system_management_interrupt", "non_maskable_interrupt", "system_management_interrupt"]
+    },
+    {
+      "context_index": 3,
+      "event_names": ["system_management_interrupt"]
+    },
+    {
+      "context_index": 4,
+      "event_names": ["system_management_interrupt", "system_management_interrupt"]
+    },
+    {
+      "context_index": 5,
+      "event_names": ["system_management_interrupt", "non_maskable_interrupt", "system_management_interrupt"]
+    }
+  ],
+  "page_fault_service": {
+    "queued_request_state": "available",
+    "request_type": "present_bit_consistency_check",
+    "processed_service_record_count": 2
+  },
+  "reproduction": {
+    "followup_execution_reproduced_failure": true
+  }
+}
