@@ -1,0 +1,16 @@
+sample_id,human_label,human_label_confidence
+failure_001,INSUFFICIENT_EVIDENCE,medium
+failure_002,PRODUCT_BUG,high
+failure_003,INSUFFICIENT_EVIDENCE,medium
+failure_004,INSUFFICIENT_EVIDENCE,medium
+failure_005,PRODUCT_BUG,high
+failure_006,PRODUCT_BUG,high
+failure_007,INSUFFICIENT_EVIDENCE,medium
+failure_008,PRODUCT_BUG,high
+failure_009,INSUFFICIENT_EVIDENCE,medium
+failure_010,PRODUCT_BUG,high
+failure_011,PRODUCT_BUG,high
+failure_012,PRODUCT_BUG,high
+failure_013,INSUFFICIENT_EVIDENCE,medium
+failure_014,PRODUCT_BUG,high
+failure_015,INSUFFICIENT_EVIDENCE,medium
